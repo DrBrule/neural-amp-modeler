@@ -139,3 +139,7 @@ nam/train/gui/_resources/settings.json
 
 # Resources downloaded into tests/
 tests/resources/*.reapeaks
+/outputs
+/train
+/models
+/tone_sweeps

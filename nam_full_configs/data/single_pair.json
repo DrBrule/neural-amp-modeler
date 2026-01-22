@@ -14,8 +14,8 @@
         "ny": null
     },
     "common": {
-        "x_path": "C:\\path\\to\\source.wav",
-        "y_path": "C:\\path\\to\\target.wav",
-        "delay": 0
+        "x_path": "/Users/jack/Documents/GitHub/neural-amp-modeler/tone_sweeps/TTS input v10 long.wav",
+        "y_path": "/Users/jack/Documents/GitHub/neural-amp-modeler/train/ORANGE.OR15. G4.V6.wav",
+        "delay": 3
     }
 }

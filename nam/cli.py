@@ -97,7 +97,7 @@ def nam_hello_world():
     Neural Amp Modeler
 
     by Steven Atkinson
-
+    batch runner
     Version {__version__}
     """
     print(msg)
@@ -105,17 +105,20 @@ def nam_hello_world():
 
 def nam_full():
     parser = _ArgumentParser()
-    parser.add_argument("data_config_path", type=str)
-    parser.add_argument("model_config_path", type=str)
-    parser.add_argument("learning_config_path", type=str)
-    parser.add_argument("outdir")
+    parser.add_argument("--data_config_path", type=str)
+    parser.add_argument("--model_config_path", type=str)
+    parser.add_argument("--learning_config_path", type=str)
+    parser.add_argument("--outdir")
+    parser.add_argument("--input_wav", type=str)
     parser.add_argument("--no-show", action="store_true", help="Don't show plots")
     parser.add_argument(
         "--no-plots", action="store_true", help="Don't create the plots at all"
     )
 
     args = parser.parse_args()
-
+    
+    print(args)
+    
     def ensure_outdir(outdir: str) -> _Path:
         outdir = _Path(outdir, _timestamp())
         outdir.mkdir(parents=True, exist_ok=False)
@@ -125,6 +128,9 @@ def nam_full():
     # Read
     with open(args.data_config_path, "r") as fp:
         data_config = _json.load(fp)
+        if args.input_wav != None:
+            data_config.common.y_path = args.input_wav
+
     with open(args.model_config_path, "r") as fp:
         model_config = _json.load(fp)
     with open(args.learning_config_path, "r") as fp:
