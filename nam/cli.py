@@ -129,7 +129,7 @@ def nam_full():
     with open(args.data_config_path, "r") as fp:
         data_config = _json.load(fp)
         if args.input_wav != None:
-            data_config.common.y_path = args.input_wav
+            data_config["common"]["y_path"] = args.input_wav
 
     with open(args.model_config_path, "r") as fp:
         model_config = _json.load(fp)
